@@ -1,0 +1,18 @@
+[package]
+name = "macluhan"
+version = "0.1.0"
+authors = ["iriri"]
+edition = "2021"
+
+repository = "https://github.com/iriri/macluhan"
+license = "BSD-3-Clause"
+description = "The medium is the message"
+
+[features]
+nightly = ["heveanly/nightly"]
+tokio = ["dep:tokio", "heveanly/std"]
+
+[dependencies]
+heveanly = "0.1"
+libc = { version = "0.2.169", default-features = false }
+tokio = { version = "1", features = ["macros", "net", "rt"], optional = true }
