@@ -1,6 +1,6 @@
 [package]
 name = "macluhan"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["iriri"]
 edition = "2021"
 
@@ -14,5 +14,5 @@ tokio = ["dep:tokio", "heveanly/std"]
 
 [dependencies]
 heveanly = "0.1"
-libc = { version = "0.2.169", default-features = false }
+libc = { version = "0.2", default-features = false }
 tokio = { version = "1", features = ["macros", "net", "rt"], optional = true }

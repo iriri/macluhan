@@ -1,6 +1,5 @@
 use std::io;
 use std::mem::{size_of_val, MaybeUninit};
-use std::os::fd::AsRawFd;
 
 use ::tokio::io::unix::{AsyncFd, AsyncFdReadyGuard};
 use ::tokio::runtime;
@@ -125,7 +124,7 @@ impl Signals {
 impl Drop for Signals {
    fn drop(&mut self) {
       if let Era::Ad { sigfd, .. } = &self.era {
-         unsafe { libc::close(sigfd.as_raw_fd()) };
+         let _ = sigfd.get_ref().close();
       }
    }
 }
